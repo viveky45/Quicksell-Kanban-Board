@@ -1,7 +1,7 @@
 import React from "react";
 import { BiAdjust,BiSignal2,BiSignal3,BiSignal4,BiCircle,BiSolidCircle,BiLoaderCircle} from "react-icons/bi";
 import { BsReception4, BsPlusLg } from "react-icons/bs"; //BsReception4
-import {FcBadDecision} from "react-icons/fc"; //BsReception4
+import {FcBadDecision,FcHighPriority} from "react-icons/fc"; //BsReception4
 import "../styles/Card.css";
 
 const Card = ({user, state, prior, id, priortitle, title, tags, status }) => {
@@ -30,7 +30,7 @@ const Card = ({user, state, prior, id, priortitle, title, tags, status }) => {
 
       <div className="tags">
         {!prior && <div className="tag">
-        {priortitle===1?<BiSignal2/>:priortitle===2?<BiSignal3/>:priortitle===0?<p>...</p>:<BiSignal4/>}
+        {priortitle===1?<BiSignal2/>:priortitle===2?<BiSignal3/>:priortitle===4?<FcHighPriority/>:priortitle===0?<p>...</p>:<BiSignal4/>}
                     
         </div>}
         {tags?.map((element, index) => {

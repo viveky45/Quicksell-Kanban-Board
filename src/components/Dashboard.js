@@ -2,9 +2,9 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { BiAdjust,BiSignal2,BiSignal3,BiSignal4,BiCircle,BiLoaderCircle} from "react-icons/bi";
 import { BsPlusLg } from "react-icons/bs"; //BsReception4
-import {FcBadDecision} from "react-icons/fc"; //BsReception4
+import {FcBadDecision,FcHighPriority} from "react-icons/fc"; //BsReception4
 import "../styles/Dashboard.css";
-import Card from "../components/Card";
+import Card from "./Card";
 
 const Dashboard = () => {
   const { dataSelected, user,prior } = useSelector((state) => state.dataSelectSlice);
@@ -29,7 +29,7 @@ const Dashboard = () => {
                     {!user ?!prior?(element[index].title==='In progress'?<BiAdjust color="orange"/>:element[index].title==='Todo'?<BiCircle/>:<BiLoaderCircle/>):(element[index]?.title==='Low'?
                       <BiSignal2/>:element[index]?.title==='Medium'?
                       <BiSignal3/>:element[index]?.title==='No priority'?
-                      <FcBadDecision/>:<BiSignal4/>
+                      <FcBadDecision/>:element[index]?.title==='Urgent'?<FcHighPriority/>:<BiSignal4/>
                     ) : (
                       <>
                         <div className="image">

@@ -16,7 +16,6 @@ export const fetchData = () => async (dispatch) => {
 
 export const dataSelect = (group, tickets, order) => async (dispatch) => {
   try {
-    
     dispatch({ type: "dataSelectRequest" });
 
     let user = false;
@@ -25,13 +24,7 @@ export const dataSelect = (group, tickets, order) => async (dispatch) => {
     let array = [],
       dataSelected = [];
 
-    if (order === "title") {
-      dataSelected.forEach((element, index) => {
-        element[index]?.value?.sort((a, b) => a.title.localeCompare(b.title));
-      });
-    }
     
-
     if (group === "status") {
       tickets.forEach((element) => {
         set.add(element.status);
@@ -64,10 +57,10 @@ export const dataSelect = (group, tickets, order) => async (dispatch) => {
           },
         });
       });
-      
+      console.log(dataSelected);
     } else {
       prior=true;
-      let priorityList = ["No priority", "Low", "Medium", "High", "Urgent"];
+      const priorityList = ["No priority", "Low", "Medium", "High", "Urgent"];
 
       priorityList.forEach((element, index) => {
         array = tickets.filter((filterElement) => {
@@ -82,10 +75,19 @@ export const dataSelect = (group, tickets, order) => async (dispatch) => {
         });
       });
     }
-
+    if (order === "title") {
+      dataSelected.forEach(group => {
+        group[Object.keys(group)[0]].value.sort((a, b) => a.title.localeCompare(b.title));
+      });
+    }
+    if (order === "priority") {
+      dataSelected.forEach(group => {
+        group[Object.keys(group)[0]].value.sort((a, b) => b.priority - a.priority);
+      });
+    }
     
 
-    
+    console.log(dataSelected);
     dispatch({ type: "dataSelectSuccess", payload: { dataSelected, user,prior} });
   } catch (error) {
     dispatch({ type: "dataSelectFailure", payload: error.message });
