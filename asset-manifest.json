@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Quicksell-Kanban-board/static/css/main.e7bdcac4.css",
+    "main.js": "/Quicksell-Kanban-board/static/js/main.d619a9b4.js",
+    "index.html": "/Quicksell-Kanban-board/index.html",
+    "main.e7bdcac4.css.map": "/Quicksell-Kanban-board/static/css/main.e7bdcac4.css.map",
+    "main.d619a9b4.js.map": "/Quicksell-Kanban-board/static/js/main.d619a9b4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e7bdcac4.css",
+    "static/js/main.d619a9b4.js"
+  ]
+}
