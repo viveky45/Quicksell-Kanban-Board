@@ -23,8 +23,6 @@ export const dataSelect = (group, tickets, order) => async (dispatch) => {
     let set = new Set();
     let array = [],
       dataSelected = [];
-
-    
     if (group === "status") {
       tickets.forEach((element) => {
         set.add(element.status);
@@ -49,15 +47,15 @@ export const dataSelect = (group, tickets, order) => async (dispatch) => {
         array = tickets?.tickets?.filter((filterElement) => {
           return element.id === filterElement.userId;
         });
-
         dataSelected.push({
           [index]: {
             title: element.name,
             value: array,
           },
         });
+        
       });
-      console.log(dataSelected);
+      
     } else {
       prior=true;
       const priorityList = ["No priority", "Low", "Medium", "High", "Urgent"];
@@ -80,6 +78,7 @@ export const dataSelect = (group, tickets, order) => async (dispatch) => {
         group[Object.keys(group)[0]].value.sort((a, b) => a.title.localeCompare(b.title));
       });
     }
+    
     if (order === "priority") {
       dataSelected.forEach(group => {
         group[Object.keys(group)[0]].value.sort((a, b) => b.priority - a.priority);
@@ -87,7 +86,7 @@ export const dataSelect = (group, tickets, order) => async (dispatch) => {
     }
     
 
-    console.log(dataSelected);
+    
     dispatch({ type: "dataSelectSuccess", payload: { dataSelected, user,prior} });
   } catch (error) {
     dispatch({ type: "dataSelectFailure", payload: error.message });

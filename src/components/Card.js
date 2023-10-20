@@ -1,11 +1,9 @@
 import React from "react";
 import { BiAdjust,BiSignal2,BiSignal3,BiSignal4,BiCircle,BiSolidCircle,BiLoaderCircle} from "react-icons/bi";
-import { BsReception4, BsPlusLg } from "react-icons/bs"; //BsReception4
-import {FcBadDecision,FcHighPriority} from "react-icons/fc"; //BsReception4
+import {FcHighPriority} from "react-icons/fc"; //BsReception4
 import "../styles/Card.css";
 
 const Card = ({user, state, prior, id, priortitle, title, tags, status }) => {
-  console.log(tags.length);
   return (
     <div className="container">
       <div className="cardHeading2" style={{ justifyContent: "space-between" }}>
@@ -15,7 +13,7 @@ const Card = ({user, state, prior, id, priortitle, title, tags, status }) => {
 
         {!user && <div className="image">
           <img
-            src="https://quicksell.co/assets/logo/logo.png"
+            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fHww"
             alt="QuickSell"
           />
 
